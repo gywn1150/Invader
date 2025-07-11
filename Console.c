@@ -33,6 +33,8 @@ void InitConsole()
 
 	// 화면 커서 숨기기
 	SetConsoleCursorInfo(hout, &coninfo);
+
+	CheckScreenSize();
 }
 
 // 원하는 위치로 커서 이동
@@ -44,4 +46,31 @@ void gotoxy(UPOINT pt)
 	pos.Y = pt.y;
 
 	SetConsoleCursorPosition(hout, pos);
+}
+
+// 스크린 사이즈를 시각적으로 보여주는 함수
+void CheckScreenSize() {
+	int i, j;
+	UPOINT pos;
+
+	for (i = 0; i < 26; i++)
+	{
+		pos.x = 81;
+		pos.y = i;
+		gotoxy(pos);
+		printf("|");
+	}
+
+	for (i = 0; i < 81; i++)
+	{
+		pos.x = i;
+		pos.y = 0;
+		gotoxy(pos);
+		printf("─");
+
+		pos.x = i;
+		pos.y = 26;
+		gotoxy(pos);
+		printf("─");
+	}
 }

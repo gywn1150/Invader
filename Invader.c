@@ -20,6 +20,7 @@ void main(void)
 	Aboom[5] = "  (*)  ";
 	Aboom[6] = "   *   ";
 	Aboom[7] = "       ";
+	// 문구 위치
 	ptend.x = 36;
 	ptend.y = 12;
 	while (loop)
@@ -94,7 +95,7 @@ void  play()
 
 	InitConsole();// 화면 초기화 
 	InitMyship();// 내 비행기 초기화
-	InitEnemyship();
+	InitEnemyShip();
 
 	// 내 비행기 초기 위치
 	ptthisMypos.x = ptMyoldpos.x = MYSHIP_BASE_POSX;
@@ -121,7 +122,7 @@ void  play()
 				// 최소 0.5초 간격 입력
 				if (gthisTickCount - bulletcount > 500)
 				{
-					MyBulletshot(ptthisMypos);
+					MyBulletshot(ptthisMypos);// 내 총알 쏘기
 					bulletcount = gthisTickCount;
 				}
 				break;
@@ -129,15 +130,17 @@ void  play()
 				// 왼쪽으로
 			case 'j':
 				ptMyoldpos.x = ptthisMypos.x;
+				// 좌측 범위 제한
 				if (--ptthisMypos.x < 1)ptthisMypos.x = 1;
-				DrawMyship(&ptthisMypos, &ptMyoldpos);
+				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
 				break;
 
 				// 오른쪽으로
 			case 'l':
 				ptMyoldpos.x = ptthisMypos.x;
+				// 우측 범위 제한
 				if (++ptthisMypos.x > 75)ptthisMypos.x = 75;
-				DrawMyship(&ptthisMypos, &ptMyoldpos);
+				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
 				break;
 			}
 		}
@@ -145,16 +148,18 @@ void  play()
 		// 움직임 그리기 (0.15초 간격)
 		if (gthisTickCount - Count > 150)
 		{
-			// 피격 판정
+			// 내 비행기 피격 판정
 			if (CheckMyShipStrike(ptthisMypos) == 0)
 			{
+				// 2000점 이상이면 높은 점수에 등록
+				// 현재 하이스코어 활용 안 함
 				if (score > 2000)
 					hiscore = score;
 				break;
 			}
-			CheckEnemyBullet(enemyship);
+			CheckEnemyShipStrike(enemyship);// 적 비행기 피격 판정
 			DrawMyBullet();// 내 총알 그리기
-			DrawMyship(&ptthisMypos, &ptMyoldpos);
+			DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
 			gotoxy(ptscore);
 
 			// 처치한 적이 40이 되면 종료
@@ -178,11 +183,12 @@ void  play()
 		// 적 속도에 따라 변동
 		if (gthisTickCount - gCount > juckspeed)
 		{
-			Bulletshot();
-			DrawBullet();
-			CleanEnemyshipPos();// 적 진행 방향 조정
-			Drawenemyship();
-			if (Checkenemypos() == 1)
+			BulletShot();// 적 총알 발사
+			DrawBullet();// 적 총알 그리기
+			CleanEnemyShipPos();// 적 진행 방향 조정
+			DrawEnemyShip();// 적 비행기 그리기 (위치 이동)
+			// 적이 끝까지 도착했는지 확인
+			if (CheckEnemyPos() == 1)
 				break;
 			gCount = gthisTickCount;
 		}

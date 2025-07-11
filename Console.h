@@ -12,3 +12,5 @@ typedef struct{
 void InitConsole();
 void gotoxy(UPOINT pt);
 void ClearScreen();
+
+void CheckScreenSize();

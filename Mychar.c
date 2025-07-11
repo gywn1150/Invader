@@ -84,7 +84,7 @@ void MyBulletshot(UPOINT ptthisMypos)
 	}
 }
 
-// 피격 판정
+// 내 비행기 피격 판정
 int CheckMyShipStrike(UPOINT ptthisMypos)
 {
 	int i,flag;
