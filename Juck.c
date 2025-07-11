@@ -1,18 +1,20 @@
 #include "main.h"
 
+// 적 비행기 모양
 char  enemyship_shape[5] = "^V^";
 
-ENEMYSHIP enemyship[MAX_ENEMY];
-UPOINT ptOld[MAX_ENEMY];
-BULLET enemy_bullet[MAXENEMY_BULLET];
+ENEMYSHIP enemyship[MAX_ENEMY];// 적 비행기 정보 배열
+UPOINT ptOld[MAX_ENEMY];// 적 비행기 위치 정보 배열
+BULLET enemy_bullet[MAXENEMY_BULLET];// 적 총알 정보 배열
 short flag;
 
-
-void Initenemyship()
+// 적 비행기 초기화
+void InitEnemyship()
 {
 	int i,j,k;
 	k = 0;
 
+	// 가로 10 세로 4
 	for(i = 0; i < MAXENEMY_BASE_ROW;i++)
 	{
 		for(j = 0; j < MAXENEMY_BASE_COL;j++)
@@ -25,10 +27,11 @@ void Initenemyship()
 		  k++;
 		}
 	}
-	InitBullet();
+	InitBullet(); // 총알 초기화
 }
 
-void CalenemyshipPos()
+// 적 진행 방향 조정
+void CleanEnemyshipPos()
 {
 	int i,j,k,XAdd,YAdd;
 	
@@ -54,6 +57,7 @@ void CalenemyshipPos()
 	}
 }
 
+// 
 int Calflag()
 {
 	int add;
@@ -108,6 +112,7 @@ int BulletNum()
 	return num;
 }
 
+// 총알 초기화
 void InitBullet()
 {
 	int i;
@@ -184,7 +189,7 @@ int Checkenemypos()
 	return flag;
 }                                                                 
 
-void CheckenemyBullet(ENEMYSHIP *enemyship)
+void CheckEnemyBullet(ENEMYSHIP *enemyship)
 {
 	int i,j;
 	static BULLET boompos[MAXMY_BULLET];

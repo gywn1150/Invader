@@ -12,8 +12,8 @@ void main(void)
 	int	loop = 1;
 
 	// 폭발 모션
-	Aboom[0] = "i<^>i ";
-	Aboom[1] = "i(*)i ";
+	Aboom[0] = "i<^>i";
+	Aboom[1] = "i(*)i";
 	Aboom[2] = " (* *) ";
 	Aboom[3] = "(** **)";
 	Aboom[4] = " (* *) ";
@@ -30,8 +30,7 @@ void main(void)
 
 		// 게임 시작
 		play();
-		test();
-
+		
 		// 흐른 시간 체크
 		for (;;)
 		{
@@ -80,11 +79,6 @@ void main(void)
 	}
 }
 
-void test() {
-
-}
-
-
 // 게임 플레이
 void  play()
 {
@@ -98,10 +92,11 @@ void  play()
 	UPOINT        ptscore, pthi;
 	int           juckspeed = 500;
 
-	InitConsole(); // 
-	InitMyship();
-	Initenemyship();
+	InitConsole();// 화면 초기화 
+	InitMyship();// 내 비행기 초기화
+	InitEnemyship();
 
+	// 내 비행기 초기 위치
 	ptthisMypos.x = ptMyoldpos.x = MYSHIP_BASE_POSX;
 	ptthisMypos.y = ptMyoldpos.y = MYSHIP_BASE_POSY;
 
@@ -111,6 +106,7 @@ void  play()
 	pthi.x = 2;
 	pthi.y = 1;
 
+	// 계속 돌아가기
 	while (TRUE)
 	{
 		gthisTickCount = GetTickCount();
@@ -122,6 +118,7 @@ void  play()
 			{
 				// 총알 슈팅
 			case 'a':
+				// 최소 0.5초 간격 입력
 				if (gthisTickCount - bulletcount > 500)
 				{
 					MyBulletshot(ptthisMypos);
@@ -145,17 +142,18 @@ void  play()
 			}
 		}
 
+		// 움직임 그리기 (0.15초 간격)
 		if (gthisTickCount - Count > 150)
 		{
-
-			if (CheckMybullet(ptthisMypos) == 0)
+			// 피격 판정
+			if (CheckMyShipStrike(ptthisMypos) == 0)
 			{
 				if (score > 2000)
 					hiscore = score;
 				break;
 			}
-			CheckenemyBullet(enemyship);
-			DrawMyBullet();
+			CheckEnemyBullet(enemyship);
+			DrawMyBullet();// 내 총알 그리기
 			DrawMyship(&ptthisMypos, &ptMyoldpos);
 			gotoxy(ptscore);
 
@@ -177,11 +175,12 @@ void  play()
 			Count = gthisTickCount;
 		}
 
+		// 적 속도에 따라 변동
 		if (gthisTickCount - gCount > juckspeed)
 		{
 			Bulletshot();
 			DrawBullet();
-			CalenemyshipPos();
+			CleanEnemyshipPos();// 적 진행 방향 조정
 			Drawenemyship();
 			if (Checkenemypos() == 1)
 				break;

@@ -36,6 +36,7 @@ typedef struct {
 } ENEMYSHIP;
 
 // extern: 전역 변수 선언 (모든 구역에서 사용 가능)
+// 함수 포인터를 선언할 때도 전역 함수로 설정
 extern BULLET     myship_bullet[MAXMY_BULLET];
 extern BULLET     enemy_bullet[MAXENEMY_BULLET];
 extern ENEMYSHIP  enemyship[MAX_ENEMY];
@@ -54,18 +55,18 @@ void DrawMyship(UPOINT* pt, UPOINT*);
 void InitMyship();
 void MyBulletshot(UPOINT);
 void DrawMyBullet();
-int  CheckMybullet(UPOINT ptthisMypos);
+int  CheckMyShipStrike(UPOINT ptthisMypos);
 
 void Drawenemyship();
-void Initenemyship();
-void CalenemyshipPos();
+void InitEnemyship();
+void CleanEnemyshipPos();
 int  Checkenemypos();
 int  Calflag();
 void CalTime();
 void Bulletshot();
 void DrawBullet();
 void InitBullet();
-void CheckenemyBullet(ENEMYSHIP*);
+void CheckEnemyBullet(ENEMYSHIP*);
 
 void boom(UPOINT pt, int);
 void play();

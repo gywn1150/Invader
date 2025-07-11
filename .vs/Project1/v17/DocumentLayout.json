@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\Github\\Invader\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Console.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Console.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Juck.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Juck.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Mychar.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Mychar.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Invader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Invader.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Console.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Console.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Main.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Juck.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Juck.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Console.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Console.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|D:\\Github\\Invader\\Console.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6C5F00A2-AD94-4409-9229-D2DBDCEC5F40}|Project1\\Project1.vcxproj|solutionrelative:Console.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,30 +34,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "Mychar.c",
+              "DocumentMoniker": "D:\\Github\\Invader\\Mychar.c",
+              "RelativeDocumentMoniker": "Mychar.c",
+              "ToolTip": "D:\\Github\\Invader\\Mychar.c",
+              "RelativeToolTip": "Mychar.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-07-11T00:27:47.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Juck.c",
               "DocumentMoniker": "D:\\Github\\Invader\\Juck.c",
               "RelativeDocumentMoniker": "Juck.c",
               "ToolTip": "D:\\Github\\Invader\\Juck.c",
               "RelativeToolTip": "Juck.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAWwEEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-07-11T00:18:40.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Console.h",
               "DocumentMoniker": "D:\\Github\\Invader\\Console.h",
               "RelativeDocumentMoniker": "Console.h",
               "ToolTip": "D:\\Github\\Invader\\Console.h",
               "RelativeToolTip": "Console.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-11T00:18:24.913Z",
               "EditorCaption": ""
@@ -66,33 +83,33 @@
               "RelativeDocumentMoniker": "Main.h",
               "ToolTip": "D:\\Github\\Invader\\Main.h",
               "RelativeToolTip": "Main.h",
-              "ViewState": "AgIAABsAAAAAAAAAAAAQwEgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAWwD0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-07-11T00:18:22.128Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Invader.c",
               "DocumentMoniker": "D:\\Github\\Invader\\Invader.c",
               "RelativeDocumentMoniker": "Invader.c",
               "ToolTip": "D:\\Github\\Invader\\Invader.c",
               "RelativeToolTip": "Invader.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAALYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-05-11T23:11:21.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Console.c",
               "DocumentMoniker": "D:\\Github\\Invader\\Console.c",
               "RelativeDocumentMoniker": "Console.c",
               "ToolTip": "D:\\Github\\Invader\\Console.c",
               "RelativeToolTip": "Console.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-05-11T23:11:10.833Z",
               "EditorCaption": ""
