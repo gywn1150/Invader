@@ -31,7 +31,7 @@ void main(void)
 
 		// 게임 시작
 		play();
-		
+
 		// 흐른 시간 체크
 		for (;;)
 		{
@@ -118,7 +118,7 @@ void  play()
 			switch (_getch())
 			{
 				// 총알 슈팅
-			case 'a':
+			case KEY_SHOT:
 				// 최소 0.5초 간격 입력
 				if (gthisTickCount - bulletcount > 500)
 				{
@@ -127,19 +127,35 @@ void  play()
 				}
 				break;
 
-				// 왼쪽으로
-			case 'j':
-				ptMyoldpos.x = ptthisMypos.x;
+				// 왼쪽
+			case KEY_LEFT:
+				ptMyoldpos = ptthisMypos;
 				// 좌측 범위 제한
-				if (--ptthisMypos.x < 1)ptthisMypos.x = 1;
+				if (--ptthisMypos.x < 1) ptthisMypos.x = 1;
 				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
 				break;
 
-				// 오른쪽으로
-			case 'l':
-				ptMyoldpos.x = ptthisMypos.x;
+				// 오른쪽
+			case KEY_RIGHT:
+				ptMyoldpos = ptthisMypos;
 				// 우측 범위 제한
-				if (++ptthisMypos.x > 75)ptthisMypos.x = 75;
+				if (++ptthisMypos.x > 75) ptthisMypos.x = 75;
+				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
+				break;
+
+				// 위
+			case KEY_UP:
+				ptMyoldpos = ptthisMypos;
+				// 위측 범위 제한
+				if (--ptthisMypos.y < 10) ptthisMypos.y = 10;
+				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
+				break;
+
+				// 아래
+			case KEY_DOWN:
+				ptMyoldpos = ptthisMypos;
+				// 아래측 범위 제한
+				if (++ptthisMypos.y > 25) ptthisMypos.y = 25;
 				DrawMyship(&ptthisMypos, &ptMyoldpos);// 내 비행기 그리기 (위치 이동)
 				break;
 			}

@@ -52,7 +52,6 @@ void CleanEnemyShipPos()
 			enemyship[k].pos.x += XAdd;
 			enemyship[k].pos.y += YAdd;
 			k++;
-
 		}
 	}
 }
@@ -63,7 +62,7 @@ int CalFlag()
 	int add;
 
 	// 첫 번째 적 기준 양 옆에 닿았을 때
-	if (enemyship[0].pos.x < 1 || enemyship[0].pos.x > 40)
+	if (enemyship[0].pos.x < 2 || enemyship[0].pos.x > 40)
 	{
 		if (flag == TRUE)
 			flag = FALSE;

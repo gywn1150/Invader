@@ -12,6 +12,12 @@
 #define MYSHIP_BASE_POSX    38  
 #define MYSHIP_BASE_POSY    23  
 
+#define KEY_UP             119//w  
+#define KEY_DOWN           115//s  
+#define KEY_LEFT            97//a
+#define KEY_RIGHT          100//d  
+#define KEY_SHOT           112//p
+
 // 헤더 설정
 #include <windows.h>
 #include <stdio.h>

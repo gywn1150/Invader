@@ -40,7 +40,7 @@ void DrawMyBullet()
 		{
 			// 내 총알이 화면 밖으로 나가면 없애고
 			// 해당 반복문 종료
-			if(myship_bullet[i].pos.y < 1)
+			if(myship_bullet[i].pos.y < 2)
 			{
 				myship_bullet[i].flag = FALSE;
 				oldpos.x = myship_bullet[i].pos.x;

@@ -53,15 +53,20 @@ void CheckScreenSize() {
 	int i, j;
 	UPOINT pos;
 
-	for (i = 0; i < 26; i++)
+	for (i = 1; i < 26; i++)
 	{
+		pos.x = 0;
+		pos.y = i;
+		gotoxy(pos);
+		printf("¦¢");
+
 		pos.x = 81;
 		pos.y = i;
 		gotoxy(pos);
-		printf("|");
+		printf("¦¢");
 	}
 
-	for (i = 0; i < 81; i++)
+	for (i = 1; i < 81; i++)
 	{
 		pos.x = i;
 		pos.y = 0;
