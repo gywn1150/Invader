@@ -196,7 +196,7 @@ void  play()
 			Count = gthisTickCount;
 		}
 
-		// 적 속도에 따라 변동
+		// 적 속도에 따라 변동 (0.5 -> 0.15)
 		if (gthisTickCount - gCount > juckspeed)
 		{
 			BulletShot();// 적 총알 발사

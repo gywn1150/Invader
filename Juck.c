@@ -6,7 +6,7 @@ char  enemyship_shape[5] = "^V^";
 ENEMYSHIP enemyship[MAX_ENEMY];// 적 비행기 정보 배열
 UPOINT ptOld[MAX_ENEMY];// 적 비행기 위치 정보 배열
 BULLET enemy_bullet[MAXENEMY_BULLET];// 적 총알 정보 배열
-short flag;
+short flag = 0;
 
 // 적 비행기 초기화
 void InitEnemyShip()
@@ -30,18 +30,14 @@ void InitEnemyShip()
 	InitBullet(); // 총알 초기화
 }
 
+int XAdd = 1, YAdd = 0;
+
 // 적 진행 방향 조정
 void CleanEnemyShipPos()
 {
-	int i, j, k, XAdd, YAdd;
+	int i, j, k;
 
 	k = 0;
-
-	YAdd = CalFlag();
-	if (flag == FALSE)
-		XAdd = 1;
-	else
-		XAdd = -1;
 
 	for (i = 0; i < MAXENEMY_BASE_ROW; i++)
 	{
@@ -54,6 +50,13 @@ void CleanEnemyShipPos()
 			k++;
 		}
 	}
+
+	YAdd = CalFlag();
+	if (flag == FALSE)
+		XAdd = 1;
+	else
+		XAdd = -1;
+
 }
 
 // 진행 방향 결정 플래그
@@ -62,7 +65,7 @@ int CalFlag()
 	int add;
 
 	// 첫 번째 적 기준 양 옆에 닿았을 때
-	if (enemyship[0].pos.x < 2 || enemyship[0].pos.x > 40)
+	if (enemyship[0].pos.x < 2 || enemyship[9].pos.x > 77)
 	{
 		if (flag == TRUE)
 			flag = FALSE;
@@ -86,9 +89,8 @@ void DrawEnemyShip()
 		// 적 비행기가 파괴되지 않았다면
 		if (enemyship[i].flag == TRUE)
 		{
-			posOld.x = ptOld[i].x;
-			posOld.y = ptOld[i].y;
-
+			posOld = ptOld[i];
+			
 			pos.x = enemyship[i].pos.x;
 			pos.y = enemyship[i].pos.y;
 

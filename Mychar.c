@@ -16,51 +16,51 @@ void InitMyship()
 
 
 // 내 비행기 그리기 (위치 이동)
-void DrawMyship(UPOINT *pt,UPOINT *oldpt)
+void DrawMyship(UPOINT* pt, UPOINT* oldpt)
 {
 	// 이전 위치를 비우기
-	gotoxy(*oldpt); 
-    printf("     ");// 내 비행기와 같은 크기
+	gotoxy(*oldpt);
+	printf("     ");// 내 비행기와 같은 크기
 	// 새로운 위치에 내 비행기 그리기
-	gotoxy(*pt); 
-	printf("%s",myship_shape);
+	gotoxy(*pt);
+	printf("%s", myship_shape);
 }
 
 // 내 총알 그리기
 void DrawMyBullet()
 {
 	int i;
-	UPOINT ptpos,oldpos;
-	
+	UPOINT ptpos, oldpos;
+
 	// 내가 가진 총알 갯수(최대 3개)
-	for( i = 0; i < MAXENEMY_BULLET ; i++)
+	for (i = 0; i < MAXENEMY_BULLET; i++)
 	{
 		// 내 총알 중 발사된 것
-		if(myship_bullet[i].flag == TRUE)
+		if (myship_bullet[i].flag == TRUE)
 		{
 			// 내 총알이 화면 밖으로 나가면 없애고
 			// 해당 반복문 종료
-			if(myship_bullet[i].pos.y < 2)
+			if (myship_bullet[i].pos.y < 2)
 			{
 				myship_bullet[i].flag = FALSE;
 				oldpos.x = myship_bullet[i].pos.x;
-		        oldpos.y = myship_bullet[i].pos.y;
+				oldpos.y = myship_bullet[i].pos.y;
 				gotoxy(oldpos);
-		        printf(" ");
+				printf(" ");
 				break;
 			}
 
-		   oldpos.x = myship_bullet[i].pos.x;
-		   oldpos.y = myship_bullet[i].pos.y;
-		   --myship_bullet[i].pos.y; // 위치값 전진
-		   ptpos.x = myship_bullet[i].pos.x;
-		   ptpos.y = myship_bullet[i].pos.y;
-		   // 이전 위치를 비우기
-		   gotoxy(oldpos);
-		   printf(" ");
-		   // 새로운 위치에 내 총알 그리기
-		   gotoxy(ptpos);
-		   printf("!");
+			oldpos.x = myship_bullet[i].pos.x;
+			oldpos.y = myship_bullet[i].pos.y;
+			--myship_bullet[i].pos.y; // 위치값 전진
+			ptpos.x = myship_bullet[i].pos.x;
+			ptpos.y = myship_bullet[i].pos.y;
+			// 이전 위치를 비우기
+			gotoxy(oldpos);
+			printf(" ");
+			// 새로운 위치에 내 총알 그리기
+			gotoxy(ptpos);
+			printf("!");
 		}
 	}
 }
@@ -69,17 +69,35 @@ void DrawMyBullet()
 void MyBulletshot(UPOINT ptthisMypos)
 {
 	int i;
-    
+
+	//// 내가 가진 총알 갯수(최대 3개)
+	//for (i = 0; i < MAXMY_BULLET; i++)
+	//{
+	//	// 내 총알 중 발사되지 않은 것
+	//	if (myship_bullet[i].flag == FALSE)
+	//	{
+	//		myship_bullet[i].flag = TRUE;// 발사 처리
+	//		myship_bullet[i].pos.x = ptthisMypos.x + 2;// 중앙 위치 조정 값
+	//		myship_bullet[i].pos.y = ptthisMypos.y - 1;
+	//		break;
+	//	}
+	//}
+
 	// 내가 가진 총알 갯수(최대 3개)
-	for( i = 0; i < MAXMY_BULLET ; i++)
+	// TO DO: 총알 갯수가 짝수여야 함
+	for (i = 0; i < MAXMY_BULLET; i += 2)
 	{
 		// 내 총알 중 발사되지 않은 것
-		if(myship_bullet[i].flag == FALSE)
+		if (myship_bullet[i].flag == FALSE
+			&& myship_bullet[i + 1].flag == FALSE)
 		{
-		   myship_bullet[i].flag = TRUE;// 발사 처리
-		   myship_bullet[i].pos.x = ptthisMypos.x + 2;// 중앙 위치 조정 값
-		   myship_bullet[i].pos.y = ptthisMypos.y - 1;
-		   break;
+			myship_bullet[i].flag = TRUE;// 발사 처리
+			myship_bullet[i + 1].flag = TRUE;// 발사 처리
+			myship_bullet[i].pos.x = ptthisMypos.x + 1;// 중앙 위치 조정 값
+			myship_bullet[i].pos.y = ptthisMypos.y - 1;
+			myship_bullet[i + 1].pos.x = ptthisMypos.x + 3;// 중앙 위치 조정 값
+			myship_bullet[i + 1].pos.y = ptthisMypos.y - 1;
+			break;
 		}
 	}
 }
@@ -87,32 +105,32 @@ void MyBulletshot(UPOINT ptthisMypos)
 // 내 비행기 피격 판정
 int CheckMyShipStrike(UPOINT ptthisMypos)
 {
-	int i,flag;
+	int i, flag;
 
 	flag = FALSE;
 
 	// 적이 가진 총알 갯수(최대 10개)
-	for( i = 0; i < MAXENEMY_BULLET ; i++)
+	for (i = 0; i < MAXENEMY_BULLET; i++)
 	{
 		// 적 총알 중 발사된 것
-		if(enemy_bullet[i].flag == TRUE)
-		{ 
+		if (enemy_bullet[i].flag == TRUE)
+		{
 			// 피격 범위
-			if( ptthisMypos.x <= enemy_bullet[i].pos.x && 
-				(enemy_bullet[i].pos.x <= ptthisMypos.x + 4) && 
-			    enemy_bullet[i].pos.y == ptthisMypos.y )
+			if (ptthisMypos.x <= enemy_bullet[i].pos.x &&
+				(enemy_bullet[i].pos.x <= ptthisMypos.x + 4) &&
+				enemy_bullet[i].pos.y == ptthisMypos.y)
 			{
 				flag = TRUE;
 				break;
 			}
 		}
 	}
-	
-	if(flag == TRUE)
+
+	if (flag == TRUE)
 		return 0;
 	else
 		return 1;
 }
 
-	
+
 
